@@ -10,6 +10,7 @@ import {
   LocalPharmacyOutlined,
   Person,
   PinDrop,
+  Ballot,
   Tune,
 } from "@material-ui/icons";
 import { formatMessage, MainMenuContribution, withModulesManager } from "@openimis/fe-core";
@@ -92,6 +93,13 @@ class AdminMainMenu extends Component {
         route: "/location/locations",
       });
     }
+
+    // HERA MENU CONTRIBUTION
+    entries.push({
+      text: formatMessage(this.props.intl, "admin", "menu.hera"),
+      icon: <Ballot />,
+      route: "/admin/hera",
+    });
 
     entries.push(
       ...this.props.modulesManager

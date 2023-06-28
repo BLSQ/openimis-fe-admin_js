@@ -36,6 +36,7 @@ export function fetchUsers(mm, filters = [], restrictHealthFacility = true) {
     return dispatch(graphql(payload, "ADMIN_USERS", filters));
   };
 }
+
 export function fetchUsersSummaries(mm, filters) {
   const payload = formatPageQueryWithCount("users", filters, USER_SUMMARY_PROJECTION);
   return graphql(payload, "ADMIN_USERS_SUMMARIES");
