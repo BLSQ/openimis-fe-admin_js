@@ -58,11 +58,6 @@ function reducer(
     dst_mun_vil: [],
     obligatory_user_fields: {},
     obligatory_eo_fields: {},
-
-    fetchingsubs: false,
-    fetchedsubs: false,
-    errorsubs: null,
-    subs: null,
   },
   action,
 ) {

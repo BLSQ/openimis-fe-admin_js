@@ -9,14 +9,10 @@ import UserRolesPicker from "./components/pickers/UserRolesPicker";
 import UserTypesPicker from "./components/pickers/UserTypesPicker";
 import reducer from "./reducer";
 import { USER_PICKER_PROJECTION } from "./actions";
-import HeraSubs from "./pages/HeraSubs";
 
 const ROUTE_ADMIN_USERS = "admin/users";
 const ROUTE_ADMIN_USER_OVERVIEW = "admin/users/overview";
 const ROUTE_ADMIN_USER_NEW = "admin/users/new";
-
-// Hera menu item
-const HERA_SUBS = "admin/hera";
 
 const DEFAULT_CONFIG = {
   translations: [{ key: "en", messages: messagesEn }],
@@ -28,7 +24,6 @@ const DEFAULT_CONFIG = {
       path: `${ROUTE_ADMIN_USER_OVERVIEW}/:user_id`,
       component: UserPage,
     },
-    { path: HERA_SUBS, component: HeraSubs },
   ],
   "core.MainMenu": [AdminMainMenu],
   refs: [
@@ -44,14 +39,13 @@ const DEFAULT_CONFIG = {
     { key: "admin.users", ref: ROUTE_ADMIN_USERS },
     { key: "admin.userOverview", ref: ROUTE_ADMIN_USER_OVERVIEW },
     { key: "admin.userNew", ref: ROUTE_ADMIN_USER_NEW },
-    { key: "admin.hers", ref: HERA_SUBS },
   ],
   "invoice.SubjectAndThirdpartyPicker": [
     {
       type: "user",
       picker: UserPicker,
       pickerProjection: USER_PICKER_PROJECTION,
-    },
+    }
   ],
 };
 

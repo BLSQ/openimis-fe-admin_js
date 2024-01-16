@@ -6,7 +6,6 @@
   "admin.menu.enrollmentOfficers": "Enrollment Officers",
   "admin.menu.healthFacilities": "Health Facilities",
   "admin.menu.locations": "Locations",
-  "admin.menu.hera": "Hera subscriptions",
   "admin.menu.medicalItems": "Medical Items",
   "admin.menu.medicalItemsPrices": "Medical Items Price Lists",
   "admin.menu.medicalServices": "Medical Services",
@@ -50,7 +49,6 @@
   "admin.user.userRoles.placeholder": "Select User Role(s)",
   "admin.user.userRoles": "User role(s)",
   "admin.user.userSummaries": "{count} user(s) found",
-  "admin.user.subscriptionsSummary": "{count} subscription(s) found",
   "admin.user.userTypes": "User type(s)",
   "admin.user.userTypes.CLAIM_ADMIN": "Claim admin",
   "admin.user.userTypes.INTERACTIVE": "Interactive",
@@ -80,6 +78,5 @@
   "admin.EnrolmentOfficerPicker.clearText": "Clear",
   "admin.EnrolmentOfficerPicker.openText": "Open",
   "admin.EnrolmentOfficerPicker.closeText": "Close",
-  "admin.UserFilter.showHistory": "Show History",
-  "admin.hera.name": "User Name"
+  "admin.UserFilter.showHistory": "Show History"
 }
