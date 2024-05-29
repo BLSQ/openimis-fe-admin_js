@@ -104,7 +104,7 @@ const UserMasterPanel = (props) => {
           codeTakenLabel="user.usernameAlreadyTaken"
           required={true}
           value={edited?.username ?? ""}
-          readOnly={readOnly}
+          readOnly={edited?.id ?? readOnly}
           onChange={(username) => onEditedChanged({ ...edited, username })}
           inputProps={{
             "maxLength": usernameLength,
