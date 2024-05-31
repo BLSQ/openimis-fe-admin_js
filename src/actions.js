@@ -14,7 +14,7 @@ const USER_SUMMARY_PROJECTION = [
   "id",
   "username",
   "officer{id,dob,phone,lastName,otherNames,email}",
-  "iUser{id,phone,lastName,otherNames,email,roles{id,name}}",
+  "iUser{id,phone,lastName,otherNames,email,roles{id,name},canLogin}",
   "claimAdmin{id,phone,lastName,otherNames,emailId,dob}",
   "clientMutationId",
 ];
@@ -221,6 +221,7 @@ export function fetchUser(mm, userId, clientMutationId) {
               validityFrom
               validityTo
               email
+              canLogin
               districts: userdistrictSet { location { id name code uuid parent { id code uuid name }}}
             }
             claimAdmin{

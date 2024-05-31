@@ -36,3 +36,7 @@ export const USER_TYPES = (rights) => {
   }
   return baseTypes;
 };
+
+export const USER_LOGIN_STATUS_TRUE = "yes";
+export const USER_LOGIN_STATUS_FALSE = "no";
+export const USER_LOGIN_STATUSES = [USER_LOGIN_STATUS_TRUE, USER_LOGIN_STATUS_FALSE];

@@ -9,6 +9,7 @@ import UserRolesPicker from "./components/pickers/UserRolesPicker";
 import UserTypesPicker from "./components/pickers/UserTypesPicker";
 import reducer from "./reducer";
 import { USER_PICKER_PROJECTION } from "./actions";
+import UserLoginStatusPicker from "./components/pickers/UserLoginStatusPicker";
 
 const ROUTE_ADMIN_USERS = "admin/users";
 const ROUTE_ADMIN_USER_OVERVIEW = "admin/users/overview";
@@ -32,6 +33,7 @@ const DEFAULT_CONFIG = {
     { key: "admin.SubstitutionEnrolmentOfficerPicker", ref: SubstitutionEnrolmentOfficerPicker },
     { key: "admin.UserRolesPicker", ref: UserRolesPicker },
     { key: "admin.UserTypesPicker", ref: UserTypesPicker },
+    { key: "admin.UserLoginStatusPicker", ref: UserLoginStatusPicker },
     {
       key: "admin.UserPicker.projection",
       ref: USER_PICKER_PROJECTION,

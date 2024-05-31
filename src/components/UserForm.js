@@ -18,7 +18,13 @@ import {
   coreConfirm,
   parseData,
 } from "@openimis/fe-core";
-import { CLAIM_ADMIN_USER_TYPE, ENROLMENT_OFFICER_USER_TYPE, INTERACTIVE_USER_TYPE, RIGHT_USERS } from "../constants";
+import {
+  CLAIM_ADMIN_USER_TYPE,
+  ENROLMENT_OFFICER_USER_TYPE,
+  INTERACTIVE_USER_TYPE,
+  RIGHT_USERS,
+  USER_LOGIN_STATUS_TRUE
+} from "../constants";
 import EnrolmentOfficerFormPanel from "./EnrolmentOfficerFormPanel";
 import ClaimAdministratorFormPanel from "./ClaimAdministratorFormPanel";
 import {
@@ -44,6 +50,7 @@ const setupState = (props) => ({
   user: !props.userId
     ? {
         userTypes: [INTERACTIVE_USER_TYPE],
+        canLogin: USER_LOGIN_STATUS_TRUE,
       }
     : props.user,
 });
@@ -144,7 +151,8 @@ class UserForm extends Component {
         !this.props.isUserEmailFormatInvalid &&
         user.roles?.length &&
         user.districts?.length > 0 &&
-        user.language
+        user.language &&
+        "canLogin" in user
       )
     )
       return false;

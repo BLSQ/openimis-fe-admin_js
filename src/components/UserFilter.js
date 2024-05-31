@@ -4,6 +4,8 @@ import { withTheme, withStyles } from "@material-ui/core/styles";
 import { injectIntl } from "react-intl";
 import { Grid, Checkbox, FormControlLabel, } from "@material-ui/core";
 import { withModulesManager, decodeId, PublishedComponent, ControlledField, TextInput, formatMessage } from "@openimis/fe-core";
+import UserLoginStatusPicker from "./pickers/UserLoginStatusPicker";
+import {USER_LOGIN_STATUS_TRUE} from "../constants";
 
 const styles = (theme) => ({
   dialogTitle: theme.dialog.title,
@@ -200,6 +202,28 @@ class UserFilter extends Component {
                         id: "healthFacility",
                         value: v,
                         filter: v ? `healthFacilityId: ${decodeId(v.id)}` : null,
+                      },
+                    ]);
+                  }}
+                />
+              </Grid>
+            }
+          />
+          <ControlledField
+            module="admin"
+            id="userFilter.canLogin"
+            field={
+              <Grid item xs={3} className={classes.item}>
+                <PublishedComponent
+                  pubRef="admin.UserLoginStatusPicker"
+                  withNull={true}
+                  value={this.filterValue("canLogin")}
+                  onChange={(v) => {
+                    onChangeFilters([
+                      {
+                        id: "canLogin",
+                        value: v,
+                        filter: v !== null ? `canLogin: ${v}` : null,
                       },
                     ]);
                   }}

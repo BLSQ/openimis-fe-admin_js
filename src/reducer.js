@@ -288,7 +288,6 @@ function reducer(
         errorL1s: null,
       };
     case "OBLIGTORY_USER_FIELDS_RESP":
-      console.log("USER FILED RESPONSE ", action.payload.data.userObligatoryFields);
       return {
         ...state,
         fetching_obligatory_user_fields: false,
@@ -311,7 +310,6 @@ function reducer(
         errorL1s: null,
       };
     case "OBLIGTORY_EO_FIELDS_RESP":
-      console.log("EO FILED RESPONSE ", action.payload.data.eoObligatoryFields);
       return {
         ...state,
         fetching_obligatory_eo_fields: false,

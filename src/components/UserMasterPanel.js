@@ -11,7 +11,11 @@ import {
   PublishedComponent,
   ValidatedTextInput,
 } from "@openimis/fe-core";
-import { CLAIM_ADMIN_USER_TYPE, ENROLMENT_OFFICER_USER_TYPE, EMAIL_REGEX_PATTERN } from "../constants";
+import {
+  CLAIM_ADMIN_USER_TYPE,
+  ENROLMENT_OFFICER_USER_TYPE,
+  EMAIL_REGEX_PATTERN,
+} from "../constants";
 import {
   usernameValidationCheck,
   usernameValidationClear,
@@ -21,6 +25,7 @@ import {
   setUserEmailValid,
   saveEmailFormatValidity,
 } from "../actions";
+import UserLoginStatusPicker from "./pickers/UserLoginStatusPicker";
 
 const styles = (theme) => ({
   tableTitle: theme.table.title,
@@ -191,7 +196,7 @@ const UserMasterPanel = (props) => {
           onChange={(healthFacility) => onEditedChanged({ ...edited, healthFacility })}
         />
       </Grid>
-      <Grid item xs={6} className={classes.item}>
+      <Grid item xs={9} className={classes.item}>
         <PublishedComponent
           pubRef="admin.UserRolesPicker"
           required
@@ -201,7 +206,17 @@ const UserMasterPanel = (props) => {
           onChange={(roles) => onEditedChanged({ ...edited, roles })}
         />
       </Grid>
-      <Grid item xs={2} className={classes.item}>
+      <Grid item xs={3} className={classes.item}>
+        <UserLoginStatusPicker
+          value={edited.canLogin}
+          onChange={(canLogin) => onEditedChanged({ ...edited, canLogin })}
+          readOnly={readOnly}
+          withNull={false}
+          required
+          label={formatMessage("user.loginStatusPicker")}
+        />
+      </Grid>
+      <Grid item xs={4} className={classes.item}>
         <PublishedComponent
           pubRef="location.LocationPicker"
           locationLevel={0}
@@ -214,7 +229,7 @@ const UserMasterPanel = (props) => {
           restrictedOptions
         />
       </Grid>
-      <Grid item xs={4} className={classes.item}>
+      <Grid item xs={8} className={classes.item}>
         <PublishedComponent
           pubRef="location.LocationPicker"
           locationLevel={1}
