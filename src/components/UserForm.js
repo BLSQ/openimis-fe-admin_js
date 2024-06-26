@@ -50,7 +50,7 @@ const setupState = (props) => ({
   user: !props.userId
     ? {
         userTypes: [INTERACTIVE_USER_TYPE],
-        canLogin: USER_LOGIN_STATUS_TRUE,
+        canLogin: true,
       }
     : props.user,
 });

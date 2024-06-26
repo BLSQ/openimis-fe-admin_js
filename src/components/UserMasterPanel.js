@@ -109,8 +109,6 @@ const UserMasterPanel = (props) => {
     return result;
   };
 
-  console.log(edited);
-
   return (
     <Grid container direction="row">
       <Grid item xs={4} className={classes.item}>
