@@ -62,6 +62,7 @@ const UserMasterPanel = (props) => {
   } = props;
   const { formatMessage } = useTranslations("admin", modulesManager);
   const dispatch = useDispatch();
+  const lastNameLength = modulesManager.getConf("fe-admin", "userForm.lastNameLength", 25);
 
   const shouldValidateUsername = (inputValue) => {
     const shouldBeValidated = inputValue !== savedUsername;
@@ -124,6 +125,9 @@ const UserMasterPanel = (props) => {
           readOnly={readOnly}
           value={edited?.otherNames ?? ""}
           onChange={(otherNames) => onEditedChanged({ ...edited, otherNames })}
+          inputProps={{
+            "maxLength": lastNameLength,
+          }}
         />
       </Grid>
       <Grid item xs={4} className={classes.item}>
@@ -134,6 +138,9 @@ const UserMasterPanel = (props) => {
           readOnly={readOnly}
           value={edited?.lastName ?? ""}
           onChange={(lastName) => onEditedChanged({ ...edited, lastName })}
+          inputProps={{
+            "maxLength": lastNameLength,
+          }}
         />
       </Grid>
       {!(
