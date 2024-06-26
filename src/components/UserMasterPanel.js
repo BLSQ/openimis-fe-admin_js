@@ -40,6 +40,8 @@ const styles = (theme) => ({
   sectionTitle: theme.typography.title,
 });
 
+const REGEX_NUMBER = new RegExp(/^\d+$/);
+
 const UserMasterPanel = (props) => {
   const {
     classes,
@@ -63,6 +65,7 @@ const UserMasterPanel = (props) => {
   const { formatMessage } = useTranslations("admin", modulesManager);
   const dispatch = useDispatch();
   const lastNameLength = modulesManager.getConf("fe-admin", "userForm.lastNameLength", 25);
+  const phoneLength = modulesManager.getConf("fe-admin", "phoneLength", 15);
 
   const shouldValidateUsername = (inputValue) => {
     const shouldBeValidated = inputValue !== savedUsername;
@@ -92,6 +95,21 @@ const UserMasterPanel = (props) => {
   useEffect(() => {
     handleEmailChange(edited?.email);
   }, []);
+
+  const formatPhoneInput = (newValue) => {
+    if (REGEX_NUMBER.test(newValue)) {
+      return newValue;
+    }
+    let result = "";
+    for (const char of newValue) {
+      if (REGEX_NUMBER.test(char)) {
+        result += char;
+      }
+    }
+    return result;
+  };
+
+  console.log(edited);
 
   return (
     <Grid container direction="row">
@@ -185,6 +203,10 @@ const UserMasterPanel = (props) => {
             readOnly={readOnly}
             value={edited?.phoneNumber ?? ""}
             onChange={(phoneNumber) => onEditedChanged({ ...edited, phoneNumber })}
+            formatInput={(v) => formatPhoneInput(v)}
+            inputProps={{
+              "maxLength": phoneLength,
+            }}
           />
         </Grid>
       )}
