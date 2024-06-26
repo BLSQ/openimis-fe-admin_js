@@ -97,7 +97,7 @@ const UserMasterPanel = (props) => {
   }, []);
 
   const formatPhoneInput = (newValue) => {
-    if (REGEX_NUMBER.test(newValue)) {
+    if (newValue === undefined || newValue === null || REGEX_NUMBER.test(newValue)) {
       return newValue;
     }
     let result = "";
